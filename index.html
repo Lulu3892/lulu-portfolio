@@ -41,17 +41,59 @@
       <div class="tape-label reveal" aria-hidden="true">CASE FILES / 01-02</div>
       <div class="projects">
         <article class="project reveal" id="daily-english" data-category="product design">
-          <div class="project-visual visual-speaking" aria-label="每日英练产品界面示意"><div class="browser-bar"><i></i><i></i><i></i><span>Daily English / Practice</span></div><div class="speaking-ui"><aside><b>每日英练</b><span class="active-line">30 分钟急救</span><span>情景表达</span><span>错句复习</span><span>单词本</span></aside><div class="lesson"><small>TRAVEL · PRACTICE 03</small><h3>Could I get a window seat?</h3><div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="feedback"><span>意群练习</span><strong>03</strong><div></div><p>Could I get / a window seat / if possible?</p></div></div></div></div>
-          <div class="project-info"><div><span>01</span><p>AI 口语学习助手 · 2026</p></div><h3>每日英练</h3><p>将用户的中文表达意图转化为自然英语，并连接标准朗读、意群训练、错句复习和两轮单词复习。独立完成产品设计、前后端开发与 Railway 部署。</p><ul class="project-facts"><li>覆盖面试、旅行、职场、日常 4 类场景</li><li>20 条内部测试集，17 条通过人工验收</li><li>Next.js / TypeScript / MySQL / SiliconFlow API</li></ul><div class="project-links"><a href="https://daily-english-production.up.railway.app/" target="_blank" rel="noreferrer">在线体验 ↗</a><a href="https://github.com/Lulu3892/daily-english" target="_blank" rel="noreferrer">项目源码 ↗</a></div></div>
+          <div class="project-visual visual-speaking case-visual" aria-label="每日英练产品界面与项目思考导图">
+            <div class="case-panel case-product-panel"><div class="browser-bar"><i></i><i></i><i></i><span>Daily English / Practice</span></div><div class="speaking-ui"><aside><b>每日英练</b><span class="active-line">30 分钟急救</span><span>情景表达</span><span>错句复习</span><span>单词本</span></aside><div class="lesson"><small>TRAVEL · PRACTICE 03</small><h3>Could I get a window seat?</h3><div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="feedback"><span>意群练习</span><strong>03</strong><div></div><p>Could I get / a window seat / if possible?</p></div></div></div></div>
+            <div class="case-panel case-map-panel" aria-hidden="true">
+              <div class="mind-map" role="img" aria-label="每日英练项目思考过程：从用户问题、竞品洞察、功能决策、核心流程、AI约束到测试迭代">
+                <div class="mind-node node-problem"><b>01 用户问题</b><span>有表达意图<br>不会组织自然英文</span></div>
+                <div class="mind-node node-research"><b>02 竞品洞察</b><span>背词、跟读、翻译<br>各自解决单点问题<br>缺少“表达—练习—复习”闭环</span></div>
+                <div class="mind-node node-priority"><b>03 功能优先级</b><span>P0：生成、朗读<br>P1：自评、复习<br>暂缓：自动纠音</span></div>
+                <div class="mind-center"><small>DAILY ENGLISH</small><b>每日英练</b><span>从表达意图<br>到复习闭环</span></div>
+                <div class="mind-node node-flow"><b>04 核心流程</b><span>场景 / 意图输入<br>AI 生成 → 朗读与自评<br>错句 / 单词复习</span></div>
+                <div class="mind-node node-ai"><b>05 AI 输出约束</b><span>JSON 输出 · 字段检查<br>异常时降级</span></div>
+                <div class="mind-node node-test"><b>06 测试迭代</b><span>20 条内部测试<br>17 条通过（85%）<small>内部人工验收结果</small></span></div>
+                <p class="mind-next">下一步：拆分旅行子场景，并将失败案例加入回归测试</p>
+              </div>
+            </div>
+          </div>
+          <div class="project-info"><div><span>01</span><p>AI 口语学习助手 · 2026</p></div><button class="case-toggle" type="button" aria-expanded="false"><span class="case-toggle-label">查看项目思考过程</span><span class="case-toggle-icon" aria-hidden="true">↘</span></button><h3>每日英练</h3><p>将用户的中文表达意图转化为自然英语，并连接标准朗读、意群训练、错句复习和两轮单词复习。独立完成产品设计、前后端开发与 Railway 部署。</p><ul class="project-facts"><li>覆盖面试、旅行、职场、日常 4 类场景</li><li>20 条内部测试集，17 条通过人工验收</li><li>Next.js / TypeScript / MySQL / SiliconFlow API</li></ul><button class="deep-dive-trigger" type="button" data-dialog="daily-prompt-dialog"><span>查看 Prompt 优化案例</span><i aria-hidden="true">↗</i></button><div class="project-links"><a href="https://daily-english-production.up.railway.app/" target="_blank" rel="noreferrer">在线体验 ↗</a><a href="https://github.com/Lulu3892/daily-english" target="_blank" rel="noreferrer">项目源码 ↗</a></div></div>
         </article>
+        <dialog class="extra-dialog deep-dive-dialog case-deep-dive prompt-case" id="daily-prompt-dialog" aria-labelledby="daily-prompt-title"><button class="dialog-close" type="button" aria-label="关闭">×</button>
+          <header class="deep-dive-head"><div><p class="eyebrow">CASE 01 · PROMPT ITERATION</p><h3 id="daily-prompt-title">从“翻译一句话”到可练习的口语输出</h3></div><p>用结构化 Prompt 约束内容、语气与格式，并为异常输入设计降级路径。</p></header>
+          <div class="prompt-example"><span>用户输入</span><strong>“酒店可以晚一点退房吗？”</strong></div>
+          <div class="prompt-compare">
+            <section><div class="compare-label">BEFORE · 原始 Prompt</div><blockquote>把用户的中文翻译成自然英文。</blockquote><p>可能只生成一句翻译，缺少场景、难度、替代表达和练习结构。</p><div class="output-sample"><small>输出示例</small><b>Can I check out later?</b></div></section>
+            <section class="optimized"><div class="compare-label">AFTER · 优化后 Prompt</div><pre>角色：英语口语学习助手&#10;任务：识别表达意图，生成自然、可练习的英语&#10;约束：&#10;1. 保持原意，不增加事实&#10;2. 适合真实口语场景&#10;3. 中英混杂时先恢复完整意图&#10;4. 场景不明确时先提出一个澄清问题&#10;5. 固定输出 expression、meaning、chunks、alternatives</pre><div class="output-sample"><small>输出示例</small><b>Would it be possible to get a late checkout?</b><span>意群：Would it be possible / to get / a late checkout?</span><span>替代表达：Could I check out a little later?</span></div></section>
+          </div>
+          <div class="deep-dive-foot"><div><b>异常处理</b><span>中英混杂 · 超时 · 空输入 · 场景不明确</span></div><div><b>内部人工验收</b><span>20 条测试用例，17 条通过</span></div><div><b>失败复盘</b><span>3 条失败案例进入后续 Prompt 与回归测试优化</span></div></div>
+        </dialog>
         <article class="project reverse reveal" id="petmind" data-category="product design">
-          <div class="project-visual visual-pet pet-carousel" aria-label="PetMind 项目界面截图轮播"><div class="carousel-track"><figure class="carousel-slide active"><img src="assets/petmind-home.jpg" alt="PetMind 产品首页"><figcaption>01 / 产品首页</figcaption></figure><figure class="carousel-slide"><img src="assets/petmind-chat.jpg" alt="PetMind 结构化健康问答流程"><figcaption>02 / 结构化问答</figcaption></figure><figure class="carousel-slide"><img src="assets/petmind-result-top.jpg" alt="PetMind 黄色风险结果与行动建议"><figcaption>03 / 风险结果</figcaption></figure><figure class="carousel-slide"><img src="assets/petmind-result-bottom.jpg" alt="PetMind 风险依据、反馈与回访"><figcaption>04 / 反馈与回访</figcaption></figure><figure class="carousel-slide"><img src="assets/petmind-history.jpg" alt="PetMind 历史咨询记录"><figcaption>05 / 历史记录</figcaption></figure></div><button class="carousel-arrow carousel-prev" type="button" aria-label="上一张截图">‹</button><button class="carousel-arrow carousel-next" type="button" aria-label="下一张截图">›</button><div class="carousel-dots" role="group" aria-label="选择项目截图"><button class="active" type="button" aria-label="查看产品首页"></button><button type="button" aria-label="查看结构化问答"></button><button type="button" aria-label="查看风险结果"></button><button type="button" aria-label="查看反馈与回访"></button><button type="button" aria-label="查看历史记录"></button></div></div>
-          <div class="project-info"><div><span>02</span><p>AI 宠物健康问答 · 2025</p></div><h3>PetMind</h3><p>面向难以判断猫狗症状紧急程度的养宠用户，设计“结构化追问—危险信号识别—绿黄红风险建议”的健康风险分流 MVP。</p><ul class="project-facts"><li>覆盖 8 类常见问题与 40 条本地规则路径</li><li>危险信号内部测试 10/10，未经临床验证</li><li>AI 信息提取 + 本地安全规则兜底</li></ul><span class="case-note">当前为本地运行 MVP，暂未开放公网访问</span></div>
+          <div class="project-info"><div><span>02</span><p>AI 宠物健康问答 · 2025</p></div><h3>PetMind</h3><p>面向难以判断猫狗症状紧急程度的养宠用户，设计“结构化追问—危险信号识别—绿黄红风险建议”的健康风险分流 MVP。</p><ul class="project-facts"><li>覆盖 8 类常见问题与 40 条本地规则路径</li><li>危险信号内部测试 10/10，未经临床验证</li><li>AI 信息提取 + 本地安全规则兜底</li></ul><button class="deep-dive-trigger" type="button" data-dialog="petmind-safety-dialog"><span>查看安全设计案例</span><i aria-hidden="true">↗</i></button><span class="case-note">当前为本地运行 MVP，暂未开放公网访问</span></div>
+          <div class="project-visual visual-pet pet-carousel" aria-label="PetMind 产品界面截图轮播"><div class="carousel-track"><figure class="carousel-slide active"><img src="assets/petmind-home.jpg" alt="PetMind 产品首页"><figcaption>01 / 产品首页</figcaption></figure><figure class="carousel-slide"><img src="assets/petmind-chat.jpg" alt="PetMind 结构化健康问答流程"><figcaption>02 / 结构化问答</figcaption></figure><figure class="carousel-slide"><img src="assets/petmind-result-top.jpg" alt="PetMind 黄色风险结果与行动建议"><figcaption>03 / 风险结果</figcaption></figure><figure class="carousel-slide"><img src="assets/petmind-result-bottom.jpg" alt="PetMind 风险依据、反馈与回访"><figcaption>04 / 反馈与回访</figcaption></figure><figure class="carousel-slide"><img src="assets/petmind-history.jpg" alt="PetMind 历史咨询记录"><figcaption>05 / 历史记录</figcaption></figure></div><button class="carousel-arrow carousel-prev" type="button" aria-label="上一张截图">‹</button><button class="carousel-arrow carousel-next" type="button" aria-label="下一张截图">›</button><div class="carousel-dots" role="group" aria-label="选择项目截图"><button class="active" type="button" aria-label="查看产品首页"></button><button type="button" aria-label="查看结构化问答"></button><button type="button" aria-label="查看风险结果"></button><button type="button" aria-label="查看反馈与回访"></button><button type="button" aria-label="查看历史记录"></button></div></div>
         </article>
+        <dialog class="extra-dialog deep-dive-dialog case-deep-dive safety-case" id="petmind-safety-dialog" aria-labelledby="petmind-safety-title"><button class="dialog-close" type="button" aria-label="关闭">×</button>
+          <header class="deep-dive-head"><div><p class="eyebrow">CASE 02 · SAFETY DESIGN</p><h3 id="petmind-safety-title">让大模型理解信息，让本地规则守住边界</h3></div><p>大模型不直接诊断，也不独立决定风险等级；最终输出由结构化追问和本地安全规则约束。</p></header>
+          <div class="safety-flow" aria-label="PetMind 安全流程"><div><b>01</b><span>用户描述</span></div><i>→</i><div><b>02</b><span>AI 提取症状<br>与上下文</span></div><i>→</i><div><b>03</b><span>本地危险<br>规则检查</span></div><i>→</i><div><b>04</b><span>风险等级与<br>行动建议</span></div><i>→</i><div><b>05</b><span>安全说明</span></div></div>
+          <div class="safety-columns"><section><h4>模型职责</h4><ul><li>提取宠物、症状、时间和频率</li><li>信息不足时继续结构化追问</li><li>模型异常时退回结构化问答</li></ul></section><section><h4>规则职责</h4><ul><li>独立检测危险信号并完成风险分级</li><li>高风险输入优先提示立即就医</li><li>危险信号优先于普通症状流程</li></ul></section><section><h4>禁止输出</h4><ul><li>不输出确定性疾病诊断</li><li>不提供处方或个体化药物剂量</li><li>不将内部测试表述为临床验证</li></ul></section></div>
+          <div class="safety-evidence"><div><strong>40/40</strong><span>规则路径内部测试通过</span></div><div><strong>20/20</strong><span>自然语言用例内部测试通过</span></div><p>以上结果仅来自自建内部测试集，未经真实用户盲测、执业兽医审核或临床验证。</p></div>
+        </dialog>
       </div>
     </section>
 
-    <section class="experience reveal" id="experience"><div class="experience-head"><div><p class="eyebrow">Experience</p><h2>实习经历</h2></div><span>2026.02—2026.04</span></div><div class="experience-body"><div><h3>Magic 广西魔法营教育科技有限公司</h3><p>教学部 · 运营实习生</p></div><div class="experience-points"><p><strong>90%</strong> 师生课程安排及账号问题在当天完成协调，联动教学、技术与客服推进处理闭环。</p><p><strong>300+</strong> 名学员课时余额定期核查，使用 Excel、条件格式和 VLOOKUP 建立分级预警。</p><p><strong>30+</strong> 名外教每周排课协同，通过多方确认和变更记录减少时间冲突。</p><p>对师生问题记录脱敏，使用 GPT 辅助分类与高频问题归纳，并进行人工复核。</p></div></div></section>
+    <section class="experience reveal" id="experience">
+      <div class="experience-head"><div><p class="eyebrow">Experience</p><h2>实习经历</h2></div><span>2026.2—2026.5</span></div>
+      <div class="experience-body">
+        <div class="experience-role"><button class="experience-proof" type="button" aria-label="查看用户问题处理 SOP 速查表"><img src="assets/magic-sop-quick-reference.png" alt="用户问题处理 SOP 速查表"><span>用户问题处理 SOP 速查表，点击查看大图 ↗</span></button><h3>Magic 广西魔法营教育科技有限公司</h3><p>产品部 · 产品运营实习生</p></div>
+        <div class="experience-points">
+          <p><strong>用户反馈与产品迭代</strong>建立反馈分级与日清机制，从 300+ 条反馈中提炼 3 项高频痛点，撰写 PRD 推动上线。</p>
+          <p><strong>数据监控与风险预警</strong>搭建 Excel 动态余额预警模型，监控 300+ 活跃用户课时，并将监控逻辑整理为运营 SOP。</p>
+          <p><strong>流程优化与协同</strong>梳理多方协作流程，将外教排课冲突率降低 30%，并输出标准化流程图。</p>
+          <p><strong>AI 辅助内容复盘</strong>使用专项 Prompt 对脱敏问题进行分类与归因，经人工复核后形成 SOP 应答模板，用于周度复盘。</p>
+        </div>
+      </div>
+    </section>
+
+    <dialog class="extra-dialog sop-dialog" id="magic-sop-dialog"><button class="dialog-close" type="button" aria-label="关闭">×</button><div class="extra-image"><img src="assets/magic-sop-quick-reference.png" alt="用户问题处理 SOP 速查表大图"></div><p class="eyebrow">MAGIC / SOP</p><h3>用户问题处理 SOP 速查表</h3></dialog>
 
     <section class="extras reveal" id="extras">
       <div class="extras-head"><div><p class="eyebrow">A LITTLE MORE</p><h2>另外~</h2></div><p>点开一张牌，看看项目之外的我。</p></div>
