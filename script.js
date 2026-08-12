@@ -11,7 +11,7 @@ document.querySelectorAll('.reveal').forEach((element) => observer.observe(eleme
 
 const printedRole = document.querySelector('.printed-role');
 if (printedRole) {
-  printedRole.style.setProperty('--printed-width', `${printedRole.scrollWidth}px`);
+  printedRole.style.setProperty('--printed-width', `${Math.ceil(printedRole.scrollWidth) + 4}px`);
 }
 
 const projectNavLinks = [...document.querySelectorAll('.filters a')];
